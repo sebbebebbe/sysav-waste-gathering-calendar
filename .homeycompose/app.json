@@ -1,0 +1,31 @@
+{
+  "id": "com.hibbisoft.garbagecalendar",
+  "version": "1.0.0",
+  "compatibility": ">=13.0.0",
+  "sdk": 3,
+  "runtime": "python",
+  "pythonVersion": "3.14",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Sophämtningskalendern Sysav"
+  },
+  "description": {
+    "en": "Håll koll på när de hämtar dina sopor"
+  },
+  "category": [
+    "tools"
+  ],
+  "brandColor": "#295E72",
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Sebastian Johansson",
+    "email": "johansson.sebastian@gmail.com"
+  }
+}

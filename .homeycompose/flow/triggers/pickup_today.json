@@ -1,0 +1,33 @@
+{
+  "id": "pickup_today",
+  "title": {
+    "en": "Pickup is today",
+    "sv": "Hämtning idag"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=sysav_bin"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "waste_type",
+      "type": "string",
+      "title": { "en": "Bin", "sv": "Kärl" },
+      "example": { "en": "Kärl 1", "sv": "Kärl 1" }
+    },
+    {
+      "name": "next_pickup_date",
+      "type": "string",
+      "title": { "en": "Next pickup", "sv": "Nästa hämtning" },
+      "example": { "en": "2026-04-19" }
+    },
+    {
+      "name": "days_until_pickup",
+      "type": "number",
+      "title": { "en": "Days until pickup", "sv": "Dagar till hämtning" }
+    }
+  ]
+}

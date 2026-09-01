@@ -1,0 +1,22 @@
+{
+  "id": "pickup_in_days",
+  "title": {
+    "en": "Pickup !{{is|isn't}} in [[days]] day(s)",
+    "sv": "Hämtning !{{är|är inte}} om [[days]] dag(ar)"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=sysav_bin"
+    },
+    {
+      "type": "number",
+      "name": "days",
+      "min": 0,
+      "max": 365,
+      "step": 1,
+      "placeholder": { "en": "1" }
+    }
+  ]
+}

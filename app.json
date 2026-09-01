@@ -1,0 +1,308 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.hibbisoft.garbagecalendar",
+  "version": "1.0.0",
+  "compatibility": ">=13.0.0",
+  "sdk": 3,
+  "runtime": "python",
+  "pythonVersion": "3.14",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Sophämtningskalendern Sysav"
+  },
+  "description": {
+    "en": "Håll koll på när de hämtar dina sopor"
+  },
+  "category": [
+    "tools"
+  ],
+  "brandColor": "#295E72",
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Sebastian Johansson",
+    "email": "johansson.sebastian@gmail.com"
+  },
+  "flow": {
+    "triggers": [
+      {
+        "id": "pickup_date_changed",
+        "title": {
+          "en": "Pickup date changed",
+          "sv": "Hämtningsdatum ändrat"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=sysav_bin"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "waste_type",
+            "type": "string",
+            "title": {
+              "en": "Bin",
+              "sv": "Kärl"
+            },
+            "example": {
+              "en": "Kärl 1",
+              "sv": "Kärl 1"
+            }
+          },
+          {
+            "name": "next_pickup_date",
+            "type": "string",
+            "title": {
+              "en": "Next pickup",
+              "sv": "Nästa hämtning"
+            },
+            "example": {
+              "en": "2026-04-27"
+            }
+          },
+          {
+            "name": "days_until_pickup",
+            "type": "number",
+            "title": {
+              "en": "Days until pickup",
+              "sv": "Dagar till hämtning"
+            }
+          }
+        ]
+      },
+      {
+        "id": "pickup_today",
+        "title": {
+          "en": "Pickup is today",
+          "sv": "Hämtning idag"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=sysav_bin"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "waste_type",
+            "type": "string",
+            "title": {
+              "en": "Bin",
+              "sv": "Kärl"
+            },
+            "example": {
+              "en": "Kärl 1",
+              "sv": "Kärl 1"
+            }
+          },
+          {
+            "name": "next_pickup_date",
+            "type": "string",
+            "title": {
+              "en": "Next pickup",
+              "sv": "Nästa hämtning"
+            },
+            "example": {
+              "en": "2026-04-19"
+            }
+          },
+          {
+            "name": "days_until_pickup",
+            "type": "number",
+            "title": {
+              "en": "Days until pickup",
+              "sv": "Dagar till hämtning"
+            }
+          }
+        ]
+      },
+      {
+        "id": "pickup_tomorrow",
+        "title": {
+          "en": "Pickup is tomorrow",
+          "sv": "Hämtning imorgon"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=sysav_bin"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "waste_type",
+            "type": "string",
+            "title": {
+              "en": "Bin",
+              "sv": "Kärl"
+            },
+            "example": {
+              "en": "Kärl 1",
+              "sv": "Kärl 1"
+            }
+          },
+          {
+            "name": "next_pickup_date",
+            "type": "string",
+            "title": {
+              "en": "Next pickup",
+              "sv": "Nästa hämtning"
+            },
+            "example": {
+              "en": "2026-04-20"
+            }
+          },
+          {
+            "name": "days_until_pickup",
+            "type": "number",
+            "title": {
+              "en": "Days until pickup",
+              "sv": "Dagar till hämtning"
+            }
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "pickup_in_days",
+        "title": {
+          "en": "Pickup !{{is|isn't}} in [[days]] day(s)",
+          "sv": "Hämtning !{{är|är inte}} om [[days]] dag(ar)"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=sysav_bin"
+          },
+          {
+            "type": "number",
+            "name": "days",
+            "min": 0,
+            "max": 365,
+            "step": 1,
+            "placeholder": {
+              "en": "1"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Sysav bin",
+        "sv": "Sopkärl"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "next_pickup_date",
+        "days_until_pickup"
+      ],
+      "images": {
+        "small": "/drivers/sysav_bin/assets/images/small.png",
+        "large": "/drivers/sysav_bin/assets/images/large.png",
+        "xlarge": "/drivers/sysav_bin/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "start"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "street_name",
+          "type": "label",
+          "label": {
+            "en": "Street name",
+            "sv": "Gatunamn"
+          },
+          "value": ""
+        },
+        {
+          "id": "street_number",
+          "type": "label",
+          "label": {
+            "en": "Street number",
+            "sv": "Gatunummer"
+          },
+          "value": ""
+        },
+        {
+          "id": "city",
+          "type": "label",
+          "label": {
+            "en": "City",
+            "sv": "Ort"
+          },
+          "value": ""
+        },
+        {
+          "id": "waste_type",
+          "type": "label",
+          "label": {
+            "en": "Waste type",
+            "sv": "Kärltyp"
+          },
+          "value": ""
+        }
+      ],
+      "id": "sysav_bin"
+    }
+  ],
+  "capabilities": {
+    "days_until_pickup": {
+      "type": "number",
+      "title": {
+        "en": "Days until pickup",
+        "sv": "Dagar till hämtning"
+      },
+      "units": {
+        "en": "days",
+        "sv": "dagar"
+      },
+      "decimals": 0,
+      "min": 0,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/calendar.svg",
+      "insights": true
+    },
+    "next_pickup_date": {
+      "type": "string",
+      "title": {
+        "en": "Next pickup",
+        "sv": "Nästa hämtning"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/calendar.svg",
+      "insights": false
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "pair": {
+    "street_name_label": "Street name",
+    "street_number_label": "Street number",
+    "city_label": "City",
+    "hint": "Try your address on sysav.se first so you know it's recognised.",
+    "lookup_button": "Look up pickup schedule",
+    "status_looking_up": "Looking up schedule..."
+  },
+  "error": {
+    "missing_address": "Please fill in street name, number and city.",
+    "address_not_found": "Sysav returned no bins for that address. Double-check it on sysav.se."
+  }
+}

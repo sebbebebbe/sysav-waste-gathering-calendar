@@ -1,0 +1,12 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Next pickup",
+    "sv": "Nästa hämtning"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/calendar.svg",
+  "insights": false
+}

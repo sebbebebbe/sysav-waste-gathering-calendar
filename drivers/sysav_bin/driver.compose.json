@@ -1,0 +1,56 @@
+{
+  "name": {
+    "en": "Sysav bin",
+    "sv": "Sopkärl"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "next_pickup_date",
+    "days_until_pickup"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "start"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": { "next": "add_devices" }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "settings": [
+    {
+      "id": "street_name",
+      "type": "label",
+      "label": { "en": "Street name", "sv": "Gatunamn" },
+      "value": ""
+    },
+    {
+      "id": "street_number",
+      "type": "label",
+      "label": { "en": "Street number", "sv": "Gatunummer" },
+      "value": ""
+    },
+    {
+      "id": "city",
+      "type": "label",
+      "label": { "en": "City", "sv": "Ort" },
+      "value": ""
+    },
+    {
+      "id": "waste_type",
+      "type": "label",
+      "label": { "en": "Waste type", "sv": "Kärltyp" },
+      "value": ""
+    }
+  ]
+}

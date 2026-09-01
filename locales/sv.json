@@ -1,0 +1,14 @@
+{
+  "pair": {
+    "street_name_label": "Gatunamn",
+    "street_number_label": "Gatunummer",
+    "city_label": "Ort",
+    "hint": "Testa adressen på sysav.se först så du vet att den känns igen.",
+    "lookup_button": "Hämta tömningsschema",
+    "status_looking_up": "Hämtar schema..."
+  },
+  "error": {
+    "missing_address": "Fyll i gata, nummer och ort.",
+    "address_not_found": "Sysav hittade inga kärl för adressen. Kontrollera på sysav.se."
+  }
+}
